@@ -1,0 +1,2 @@
+INSERT INTO providers (provider_description, version, next_version, demo_version , is_active, created_at, updated_at, deleted_at) VALUES ('Proveedor A', '1.0', '2.0', '2.1', true, NOW(), NOW(), null);
+INSERT INTO providers (provider_description, version, next_version, demo_version , is_active, created_at, updated_at, deleted_at) VALUES ('Proveedor B', '1.1', '2.1', '2.2', true, NOW(), NOW(), null);
