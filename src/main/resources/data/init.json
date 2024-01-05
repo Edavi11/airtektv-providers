@@ -1,0 +1,651 @@
+[
+  {
+    "id": 1,
+    "categories": {
+      "tags": "Nacionales"
+    },
+    "title": "AirtekTV",
+    "url": "https://airtek.tv/livestream/HOME.m3u8",
+    "thumbnail": "atkchannel.webp",
+    "backup_url": null
+  },
+  {
+    "id": 2,
+    "categories": {
+      "tags": "Nacionales"
+    },
+    "title": "ANTV",
+    "url": "https://airtek.tv/livestream/ANTV.m3u8",
+    "thumbnail": "antv.webp",
+    "backup_url": "https://airtek.tv/livestream/ANTV_RESPALDO.m3u8"
+  },
+  {
+    "id": 3,
+    "categories": {
+      "tags": "Nacionales"
+    },
+    "title": "VIVE TV",
+    "url": "https://airtek.tv/livestream/VIVE_TV.m3u8",
+    "thumbnail": "vivetv.webp",
+    "backup_url": "https://airtek.tv/livestream/VIVE_TV_RESPALDO.m3u8"
+  },
+  {
+    "id": 4,
+    "categories": {
+      "tags": "Nacionales"
+    },
+    "title": "FANB",
+    "url": "https://airtek.tv/livestream/TV_FANB.m3u8",
+    "thumbnail": "tvfanb.webp",
+    "backup_url": "https://airtek.tv/livestream/TV_FANB_RESPALDO.m3u8"
+  },
+  {
+    "id": 5,
+    "categories": {
+      "tags": "Nacionales"
+    },
+    "title": "VTV",
+    "url": "https://airtek.tv/livestream/VTV.m3u8",
+    "thumbnail": "vtv.webp",
+    "backup_url": "https://airtek.tv/livestream/VTV_RESPALDO.m3u8"
+  },
+  {
+    "id": 6,
+    "categories": {
+      "tags": "Nacionales"
+    },
+    "title": "Globovisión",
+    "url": "https://airtek.tv/livestream/Globovision.m3u8",
+    "thumbnail": "globovision.webp",
+    "backup_url": "https://airtek.tv/livestream/Globovision_RESPALDO.m3u8"
+  },
+  {
+    "id": 7,
+    "categories": {
+      "tags": "Nacionales"
+    },
+    "title": "Venevisión",
+    "url": "https://airtek.tv/livestream/Venevision.m3u8",
+    "thumbnail": "venevision.webp",
+    "backup_url": "https://airtek.tv/livestream/Venevision_RESPALDO.m3u8"
+  },
+  {
+    "id": 8,
+    "categories": {
+      "tags": "Nacionales"
+    },
+    "title": "TELESUR",
+    "url": "https://airtek.tv/livestream/TELESUR.m3u8",
+    "thumbnail": "telesur.webp",
+    "backup_url": "https://airtek.tv/livestream/TELESUR_RESPALDO.m3u8"
+  },
+  {
+    "id": 9,
+    "categories": {
+      "tags": "Nacionales"
+    },
+    "title": "TVES",
+    "url": "https://airtek.tv/livestream/TVES.m3u8",
+    "thumbnail": "tves.webp",
+    "backup_url": "https://airtek.tv/livestream/TVES_RESPALDO.m3u8"
+  },
+  {
+    "id": 10,
+    "categories": {
+      "tags": "Nacionales"
+    },
+    "title": "TLT",
+    "url": "https://airtek.tv/livestream/TLT.m3u8",
+    "thumbnail": "tlt.webp",
+    "backup_url": "https://airtek.tv/livestream/TLT_RESPALDO.m3u8"
+  },
+  {
+    "id": 11,
+    "categories": {
+      "tags": "Nacionales"
+    },
+    "title": "CANAL 11",
+    "url": "https://airtek.tv/livestream/CANAL_11.m3u8",
+    "thumbnail": "canal11.webp",
+    "backup_url": null
+  },
+  {
+    "id": 12,
+    "categories": {
+      "tags": "Nacionales"
+    },
+    "title": "CONCIENCIA TV",
+    "url": "https://airtek.tv/livestream/CONCIENCIA_TV.m3u8",
+    "thumbnail": "concienciatv.webp",
+    "backup_url": "https://airtek.tv/livestream/CONCIENCIA_TV_RESPALDO.m3u8"
+  },
+  {
+    "id": 13,
+    "categories": {
+      "tags": "Nacionales"
+    },
+    "title": "Televen",
+    "url": "https://airtek.tv/livestream/TELEVEN.m3u8",
+    "thumbnail": "televen.webp",
+    "backup_url": "https://airtek.tv/livestream/TELEVEN_RESPALDO.m3u8"
+  },
+  {
+    "id": 14,
+    "categories": {
+      "tags": "Nacionales"
+    },
+    "title": "COLOMBEIA",
+    "url": "https://airtek.tv/livestream/COLOMBEIA.m3u8",
+    "thumbnail": "colombeia.webp",
+    "backup_url": "https://airtek.tv/livestream/COLOMBEIA_RESPALDO.m3u8"
+  },
+  {
+    "id": 15,
+    "categories": {
+      "tags": "Nacionales"
+    },
+    "title": "CANAL I",
+    "url": "https://airtek.tv/livestream/CANAL_I.m3u8",
+    "thumbnail": "canali.webp",
+    "backup_url": "https://airtek.tv/livestream/CANAL_I_RESPALDO.m3u8"
+  },
+  {
+    "id": 16,
+    "categories": {
+      "tags": "Entretenimiento"
+    },
+    "title": "TELEMUNDO",
+    "url": "https://airtek.tv/livestream/TELEMUNDO.m3u8",
+    "thumbnail": "telemundo.webp",
+    "backup_url": null
+  },
+  {
+    "id": 17,
+    "categories": {
+      "tags": "Entretenimiento"
+    },
+    "title": "A&E",
+    "url": "https://airtek.tv/livestream/A_E_HD.m3u8",
+    "thumbnail": "ae.webp",
+    "backup_url": null
+  },
+  {
+    "id": 18,
+    "categories": {
+      "tags": "Entretenimiento"
+    },
+    "title": "E ENTERTAINMENT",
+    "url": "https://airtek.tv/livestream/E_ENTERTAINMENT.m3u8",
+    "thumbnail": "eentretainment.webp",
+    "backup_url": null
+  },
+  {
+    "id": 19,
+    "categories": {
+      "tags": "Entretenimiento"
+    },
+    "title": "SONY HD",
+    "url": "https://airtek.tv/livestream/SONY_HD.m3u8",
+    "thumbnail": "sony.webp",
+    "backup_url": null
+  },
+  {
+    "id": 20,
+    "categories": {
+      "tags": "Entretenimiento"
+    },
+    "title": "SONY MOVIES",
+    "url": "https://airtek.tv/livestream/SONYMOVIES.m3u8",
+    "thumbnail": "sonymovies.webp",
+    "backup_url": null
+  },
+  {
+    "id": 21,
+    "categories": {
+      "tags": "Entretenimiento"
+    },
+    "title": "WARNER CHANNEL HD",
+    "url": "https://airtek.tv/livestream/WARNER_CHANNEL_HD.m3u8",
+    "thumbnail": "warner.webp",
+    "backup_url": null
+  },
+  {
+    "id": 22,
+    "categories": {
+      "tags": "Entretenimiento"
+    },
+    "title": "STAR",
+    "url": "https://airtek.tv/livestream/STAR.m3u8",
+    "thumbnail": "star.webp",
+    "backup_url": null
+  },
+  {
+    "id": 23,
+    "categories": {
+      "tags": "Entretenimiento"
+    },
+    "title": "SPACE",
+    "url": "https://airtek.tv/livestream/SPACE.m3u8",
+    "thumbnail": "space.webp",
+    "backup_url": null
+  },
+  {
+    "id": 24,
+    "categories": {
+      "tags": "Entretenimiento"
+    },
+    "title": "TNT SERIES",
+    "url": "https://airtek.tv/livestream/TNT_SERIES.m3u8",
+    "thumbnail": "tntserie.webp",
+    "backup_url": null
+  },
+  {
+    "id": 25,
+    "categories": {
+      "tags": "Entretenimiento"
+    },
+    "title": "TNT",
+    "url": "https://airtek.tv/livestream/TNT.m3u8",
+    "thumbnail": "tnt.webp",
+    "backup_url": "https://airtek.tv/livestream/TNT_RESPALDO.m3u8"
+  },
+  {
+    "id": 26,
+    "categories": {
+      "tags": "Entretenimiento"
+    },
+    "title": "AXN",
+    "url": "https://airtek.tv/livestream/AXN.m3u8",
+    "thumbnail": "axn.webp",
+    "backup_url": null
+  },
+  {
+    "id": 27,
+    "categories": {
+      "tags": "Entretenimiento"
+    },
+    "title": "GOLDEN",
+    "url": "https://airtek.tv/livestream/GOLDEN.m3u8",
+    "thumbnail": "golden.webp",
+    "backup_url": "https://airtek.tv/livestream/GOLDEN_RESPALDO.m3u8"
+  },
+  {
+    "id": 28,
+    "categories": {
+      "tags": "Entretenimiento"
+    },
+    "title": "GOLDEN EDGE",
+    "url": "https://airtek.tv/livestream/GOLDEN_EDGE.m3u8",
+    "thumbnail": "goldenedge.webp",
+    "backup_url": null
+  },
+  {
+    "id": 29,
+    "categories": {
+      "tags": "Entretenimiento"
+    },
+    "title": "DPELICULAS",
+    "url": "https://airtek.tv/livestream/DPELICULAS.m3u8",
+    "thumbnail": "dpeliculas.webp",
+    "backup_url": "https://airtek.tv/livestream/DEPELICULAS_RESPALDO.m3u8"
+  },
+  {
+    "id": 30,
+    "categories": {
+      "tags": "Entretenimiento"
+    },
+    "title": "CINE CANAL",
+    "url": "https://airtek.tv/livestream/CINECANAL.m3u8",
+    "thumbnail": "cinecanal.webp",
+    "backup_url": null
+  },
+  {
+    "id": 31,
+    "categories": {
+      "tags": "Entretenimiento"
+    },
+    "title": "STUDIO UNIVERSAL",
+    "url": "https://airtek.tv/livestream/STUDIO_UNIVERSAL.m3u8",
+    "thumbnail": "studiouniversal.webp",
+    "backup_url": null
+  },
+  {
+    "id": 32,
+    "categories": {
+      "tags": "Entretenimiento"
+    },
+    "title": "UNIVERSAL",
+    "url": "https://airtek.tv/livestream/UNIVERSAL.m3u8",
+    "thumbnail": "universal.webp",
+    "backup_url": null
+  },
+  {
+    "id": 33,
+    "categories": {
+      "tags": "Entretenimiento"
+    },
+    "title": "BITME",
+    "url": "https://airtek.tv/livestream/BITME.m3u8",
+    "thumbnail": "bitme.webp",
+    "backup_url": null
+  },
+  {
+    "id": 34,
+    "categories": {
+      "tags": "Entretenimiento"
+    },
+    "title": "Distrito Comedia",
+    "url": "https://airtek.tv/livestream/Distrito_Comedia.m3u8",
+    "thumbnail": "distritocomedia.webp",
+    "backup_url": "https://airtek.tv/livestream/DISTRITO_COMEDIA_RESPALDO.m3u8"
+  },
+  {
+    "id": 35,
+    "categories": {
+      "tags": "Entretenimiento"
+    },
+    "title": "Paramount",
+    "url": "https://airtek.tv/livestream/Paramount.m3u8",
+    "thumbnail": "paramount.webp",
+    "backup_url": null
+  },
+  {
+    "id": 36,
+    "categories": {
+      "tags": "Entretenimiento"
+    },
+    "title": "FX",
+    "url": "https://airtek.tv/livestream/FX.m3u8",
+    "thumbnail": "fx.webp",
+    "backup_url": null
+  },
+  {
+    "id": 37,
+    "categories": {
+      "tags": "Deportes"
+    },
+    "title": "Meridiano",
+    "url": "https://airtek.tv/livestream/Meridiano.m3u8",
+    "thumbnail": "meridiano.webp",
+    "backup_url": "https://airtek.tv/livestream/Meridiano_RESPALDO.m3u8"
+  },
+  {
+    "id": 38,
+    "categories": {
+      "tags": "Deportes"
+    },
+    "backup_url": null,
+    "title": "IVC",
+    "url": "https://airtek.tv/livestream/IVC.m3u8",
+    "thumbnail": "ivc.webp"
+  },
+  {
+    "id": 39,
+    "categories": {
+      "tags": "Deportes"
+    },
+    "backup_url": null,
+    "title": "ESPN XTRA",
+    "url": "https://airtek.tv/livestream/ESPN_EXTRA.m3u8",
+    "thumbnail": "espnxtra.webp"
+  },
+  {
+    "id": 40,
+    "categories": {
+      "tags": "Deportes"
+    },
+    "backup_url": null,
+    "title": "ESPN 1",
+    "url": "https://airtek.tv/livestream/ESPN_1.m3u8",
+    "thumbnail": "espn.webp"
+  },
+  {
+    "id": 41,
+    "categories": {
+      "tags": "Deportes"
+    },
+    "backup_url": null,
+    "title": "ESPN 2",
+    "url": "https://airtek.tv/livestream/ESPN_2.m3u8",
+    "thumbnail": "espn2.webp"
+  },
+  {
+    "id": 42,
+    "categories": {
+      "tags": "Deportes"
+    },
+    "backup_url": null,
+    "title": "ESPN 3",
+    "url": "https://airtek.tv/livestream/ESPN_3.m3u8",
+    "thumbnail": "espn3.webp"
+  },
+  {
+    "id": 43,
+    "categories": {
+      "tags": "Deportes"
+    },
+    "backup_url": null,
+    "title": "ESPN 4",
+    "url": "https://airtek.tv/livestream/ESPN_4.m3u8",
+    "thumbnail": "espn4.webp"
+  },
+  {
+    "id": 44,
+    "categories": {
+      "tags": "Deportes"
+    },
+    "backup_url": null,
+    "title": "FOX SPORTS 2",
+    "url": "https://airtek.tv/livestream/FOX_SPORTS_2.m3u8",
+    "thumbnail": "foxsports2.webp"
+  },
+  {
+    "id": 45,
+    "categories": {
+      "tags": "Deportes"
+    },
+    "backup_url": null,
+    "title": "FOX SPORTS 3",
+    "url": "https://airtek.tv/livestream/FOX_SPORTS_3.m3u8",
+    "thumbnail": "foxsports3.webp"
+  },
+  {
+    "id": 46,
+    "categories": {
+      "tags": "Infantil"
+    },
+    "backup_url": null,
+    "title": "DISNEY CHANNEL",
+    "url": "https://airtek.tv/livestream/DISNEY_CHANNEL.m3u8",
+    "thumbnail": "disney.webp"
+  },
+  {
+    "id": 47,
+    "categories": {
+      "tags": "Infantil"
+    },
+    "backup_url": null,
+    "title": "TOONCAST",
+    "url": "https://airtek.tv/livestream/TOONCAST.m3u8",
+    "thumbnail": "tooncast.webp"
+  },
+  {
+    "id": 48,
+    "categories": {
+      "tags": "Infantil"
+    },
+    "backup_url": null,
+    "title": "BabyTV",
+    "url": "https://airtek.tv/livestream/BABY_TV.m3u8",
+    "thumbnail": "babytv.webp"
+  },
+  {
+    "id": 49,
+    "categories": {
+      "tags": "Infantil"
+    },
+    "backup_url": null,
+    "title": "Disney Junior",
+    "url": "https://airtek.tv/livestream/DISNEY_JUNIOR.m3u8",
+    "thumbnail": "disneyjunior.webp"
+  },
+  {
+    "id": 50,
+    "categories": {
+      "tags": "Infantil"
+    },
+    "backup_url": null,
+    "title": "DreamWorks",
+    "url": "https://airtek.tv/livestream/dreamworks.m3u8",
+    "thumbnail": "dreamworks.webp"
+  },
+  {
+    "id": 51,
+    "categories": {
+      "tags": "Educativo"
+    },
+    "backup_url": null,
+    "title": "HISTORY CHANNEL HD",
+    "url": "https://airtek.tv/livestream/HISTORY_CHANNEL_HD.m3u8",
+    "thumbnail": "history.webp"
+  },
+  {
+    "id": 52,
+    "categories": {
+      "tags": "Educativo"
+    },
+    "backup_url": null,
+    "title": "H2",
+    "url": "https://airtek.tv/livestream/H2.m3u8",
+    "thumbnail": "h2.webp"
+  },
+  {
+    "id": 53,
+    "categories": {
+      "tags": "Educativo"
+    },
+    "backup_url": null,
+    "title": "NATGEO",
+    "url": "https://airtek.tv/livestream/NATGEO.m3u8",
+    "thumbnail": "natgeo.webp"
+  },
+  {
+    "id": 54,
+    "categories": {
+      "tags": "Telenovelas"
+    },
+    "title": "CANAL DE LAS ESTRELLAS",
+    "url": "https://airtek.tv/livestream/CANAL_DE_LAS_ESTRALLA.m3u8",
+    "thumbnail": "lasestrellas.webp",
+    "backup_url": "https://airtek.tv/livestream/CANAL_DE_ESTRELLAS_RESPALDO.m3u8"
+  },
+  {
+    "id": 55,
+    "categories": {
+      "tags": "Telenovelas"
+    },
+    "title": "TELENOVELA HD",
+    "url": "https://airtek.tv/livestream/TELENOVELA_HD.m3u8",
+    "thumbnail": "tln.webp"
+  },
+  {
+    "id": 56,
+    "categories": {
+      "tags": "Música"
+    },
+    "title": "Telehit HD",
+    "url": "https://airtek.tv/livestream/TELEHIT_HD.m3u8",
+    "thumbnail": "telehit.webp",
+    "backup_url": "https://airtek.tv/livestream/TELEHIT_RESPALDO.m3u8"
+  },
+  {
+    "id": 57,
+    "categories": {
+      "tags": "Música"
+    },
+    "title": "Telehit Music",
+    "url": "https://airtek.tv/livestream/TELEHIT_MUSIC.m3u8",
+    "thumbnail": "telehitplus.webp",
+    "backup_url": "https://airtek.tv/livestream/TELEHIT_MUSIC_RESPALDO.m3u8"
+  },
+  {
+    "id": 58,
+    "categories": {
+      "tags": "Música"
+    },
+    "title": "Bandamax",
+    "url": "https://airtek.tv/livestream/Bandamax.m3u8",
+    "thumbnail": "bandamax.webp",
+    "backup_url": null
+  },
+  {
+    "id": 59,
+    "categories": {
+      "tags": "Música"
+    },
+    "title": "MTV 80s",
+    "url": "https://airtek.tv/livestream/MTV_80s.m3u8",
+    "thumbnail": "mtv80s.webp",
+    "backup_url": null
+  },
+  {
+    "id": 60,
+    "categories": {
+      "tags": "Lifestyle"
+    },
+    "title": "Lifetimes",
+    "url": "https://airtek.tv/livestream/LIFETIME.m3u8",
+    "thumbnail": "lifetime.webp",
+    "backup_url": null
+  },
+  {
+    "id": 61,
+    "categories": {
+      "tags": "Entretenimiento"
+    },
+    "title": "USA",
+    "url": "https://airtek.tv/livestream/USA.m3u8",
+    "thumbnail": "usa.webp",
+    "backup_url": null
+  },
+  {
+    "id": 62,
+    "categories": {
+      "tags": "Religión"
+    },
+    "title": "Enlace",
+    "url": "https://airtek.tv/livestream/ENLACE.m3u8",
+    "thumbnail": "enlace.webp",
+    "backup_url": null
+  },
+  {
+    "id": 63,
+    "categories": {
+      "tags": "Educativo"
+    },
+    "title": "DW",
+    "url": "https://airtek.tv/livestream/DW.m3u8",
+    "thumbnail": "dw.webp",
+    "backup_url": null
+  },
+  {
+    "id": 64,
+    "categories": {
+      "tags": "Religión"
+    },
+    "title": "EWTN",
+    "url": "https://airtek.tv/livestream/EWTN.m3u8",
+    "thumbnail": "ewtn.webp",
+    "backup_url": null
+  },
+  {
+    "id": 65,
+    "categories": {
+      "tags": "Religión"
+    },
+    "title": "Enlace Juvenil",
+    "url": "https://airtek.tv/livestream/ENLACE_JUVENIL.m3u8",
+    "thumbnail": "enlacejuvenil.webp",
+    "backup_url": null
+  }
+]

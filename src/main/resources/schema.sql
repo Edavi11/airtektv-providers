@@ -10,8 +10,11 @@ CREATE TABLE IF NOT EXISTS PROVIDERS (
     deleted_at TIMESTAMP
 );
 
-CREATE TABLE IF NOT EXISTS PERSON(
+CREATE TABLE IF NOT EXISTS categories (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(15),
-    lastname VARCHAR(15)
+    category_description VARCHAR(35) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    deleted_at TIMESTAMP,
+    CONSTRAINT unique_category_description UNIQUE (category_description)
 );

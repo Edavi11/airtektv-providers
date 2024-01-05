@@ -12,7 +12,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "providers")
-public class Providers {
+public class Providers implements Cloneable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -47,8 +47,23 @@ public class Providers {
         createdAt = new Date();
         updatedAt = new Date();
     }
+    
+    public Providers() {
+    }
 
-    // insert
+    public Providers(Integer id, String providerDescription, String version, String next_version, String demo_version,
+            Boolean isActive, Date createdAt, Date deletedAt, Date updatedAt) {
+        this.id = id;
+        this.providerDescription = providerDescription;
+        this.version = version;
+        this.next_version = next_version;
+        this.demo_version = demo_version;
+        this.isActive = isActive;
+        this.createdAt = createdAt;
+        this.deletedAt = deletedAt;
+        this.updatedAt = updatedAt;
+    }
+
     public Providers(String providerDescription, String version, String next_version, String demo_version,
             Boolean isActive) {
         this.providerDescription = providerDescription;
@@ -58,19 +73,67 @@ public class Providers {
         this.isActive = isActive;
     }
 
-    // update
-    public Providers(Integer id, String providerDescription, String version, String next_version, String demo_version,
-            Boolean isActive) {
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getProviderDescription() {
+        return providerDescription;
+    }
+
+    public void setProviderDescription(String providerDescription) {
         this.providerDescription = providerDescription;
+    }
+
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
         this.version = version;
+    }
+
+    public String getNext_version() {
+        return next_version;
+    }
+
+    public void setNext_version(String next_version) {
         this.next_version = next_version;
+    }
+
+    public String getDemo_version() {
+        return demo_version;
+    }
+
+    public void setDemo_version(String demo_version) {
         this.demo_version = demo_version;
+    }
+
+    public Boolean getIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(Boolean isActive) {
         this.isActive = isActive;
     }
 
-    // delete
-    public Providers(Integer id) {
-        this.id = id;
+    @Override
+    public Providers clone() {
+        try {
+            Providers cloned = (Providers) super.clone();
+
+            // Realizar copias profundas de objetos internos si es necesario
+            cloned.createdAt = (createdAt != null) ? new Date(createdAt.getTime()) : null;
+            cloned.updatedAt = (updatedAt != null) ? new Date(updatedAt.getTime()) : null;
+            cloned.deletedAt = (deletedAt != null) ? new Date(deletedAt.getTime()) : null;
+
+            return cloned;
+        } catch (CloneNotSupportedException e) {
+            return null;
+        }
     }
 }

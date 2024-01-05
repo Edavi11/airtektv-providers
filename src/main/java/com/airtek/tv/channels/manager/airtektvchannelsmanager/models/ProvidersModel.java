@@ -1,7 +1,5 @@
 package com.airtek.tv.channels.manager.airtektvchannelsmanager.models;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,22 +7,11 @@ import lombok.Setter;
 @Setter
 public class ProvidersModel {
 
-    @JsonProperty
     private Integer id;
-
-    @JsonProperty
     private String provider_description;
-
-    @JsonProperty
     private String version;
-    
-    @JsonProperty
     private String next_version;
-    
-    @JsonProperty
     private String demo_version;
-
-    @JsonProperty
     private Boolean is_active;
 
     public ProvidersModel() {

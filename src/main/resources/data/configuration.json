@@ -1,0 +1,11 @@
+{
+    "valor1": "Hola mundo",
+    "array_value": [
+        "1",
+        "2",
+        "3"
+    ],
+    "dictonary": {
+        "adios":"mundo"
+    }
+}
