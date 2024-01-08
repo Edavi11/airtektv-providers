@@ -41,27 +41,27 @@ public class TestChannelsServiceImpl implements ITestChannelsService {
 
                     TestChannels channelsDb = this.testChannelsRepository.save(new TestChannels(channel.getTitle(),category,channel.getUrl(),channel.getBackupUrl(),channel.getThumbnail()));
                     ChannelsModel model = new ChannelsModel(channelsDb.getId(),channelsDb.getTitle(),channelsDb.getFkCategory().getId(),channelsDb.getUrl(),channelsDb.getBackupUrl(),channelsDb.getThumbnail());
-                    response.put("msg", "Recurso creado exitosamente");
+                    response.put("msg", "Resource created successfully");
                     response.put("new_value", model);
 
                 } else {
 
                     TestChannels channelsDb = optionalChannels.get();
                     ChannelsModel model = new ChannelsModel(channelsDb.getId(),channelsDb.getTitle(),channelsDb.getFkCategory().getId(),channelsDb.getUrl(),channelsDb.getBackupUrl(),channelsDb.getThumbnail());
-                    response.put("msg", "Registro ya existente");
+                    response.put("msg", "Resource already exists");
                     response.put("value", model);
                 }
         } else {
-            response.put("msg", "Por favor ingrese un id de categoria existente");
+            response.put("msg", "Please enter an existing category id");
         }
 
 
         } catch (EntityNotFoundException e) {
             e.printStackTrace();
-            response.put("err", "Ha ocurrido una execpcion: "+e.getMessage());
+            response.put("err", "An exception has occurred: "+e.getMessage());
         } catch (Exception ex) {
             ex.printStackTrace();
-            response.put("err", "Ha ocurrido una execpcion: "+ex.getMessage());
+            response.put("err", "An exception has occurred: "+ex.getMessage());
         }
 
         return response;    
@@ -80,12 +80,12 @@ public class TestChannelsServiceImpl implements ITestChannelsService {
                 models = testChannels.stream().map(channel -> new ChannelsModel(channel.getId(),channel.getTitle(),channel.getFkCategory().getId(),channel.getUrl(),channel.getBackupUrl(),channel.getThumbnail())).collect(Collectors.toList());
                 response.put("channels", models);
             } else {
-                response.put("msg", "No existen registros en la tabla");
+                response.put("msg", "There are no records in the table");
             }
 
         } catch (Exception e) {
             e.printStackTrace();
-            response.put("err", "Ha ocurrido una execpcion: "+e.getMessage());
+            response.put("err", "An exception has occurred: "+e.getMessage());
         }
         return response;        
     }
@@ -102,15 +102,15 @@ public class TestChannelsServiceImpl implements ITestChannelsService {
                 ChannelsModel model = new ChannelsModel(channel.getId(),channel.getTitle(),channel.getFkCategory().getId(),channel.getUrl(),channel.getBackupUrl(),channel.getThumbnail());
                 response.put("channel", model);
             } else {
-                response.put("msg", "No se encontró el registro con el id = " + id);
+                response.put("msg", "Record not found with id = " + id);
             }
 
         } catch (EntityNotFoundException e) {
             e.printStackTrace();
-            response.put("err", "Ha ocurrido una execpcion: "+ e.getMessage());
+            response.put("err", "An exception has occurred: "+ e.getMessage());
         } catch (Exception ex) {
             ex.printStackTrace();
-            response.put("err", "Ha ocurrido una execpcion: "+ ex.getMessage());
+            response.put("err", "An exception has occurred: "+ ex.getMessage());
         }
 
         return response;    
@@ -142,21 +142,21 @@ public class TestChannelsServiceImpl implements ITestChannelsService {
                     ChannelsModel existingModel = new ChannelsModel(existingChannel.getId(),existingChannel.getTitle().toLowerCase(),existingChannel.getFkCategory().getId(),existingChannel.getUrl(),existingChannel.getBackupUrl(),existingChannel.getThumbnail());
                     ChannelsModel previousModel = new ChannelsModel(previousChannel.getId(),previousChannel.getTitle().toLowerCase(),previousChannel.getFkCategory().getId(),previousChannel.getUrl(),previousChannel.getBackupUrl(),previousChannel.getThumbnail());
 
-                    response.put("msg", "Registro actualizado correctamente");
+                    response.put("msg", "Resource updated correctly");
                     response.put("updated", existingModel);
                     response.put("previous", previousModel);
 
                     this.testChannelsRepository.save(existingChannel);
 
                 } else {
-                    response.put("msg", "No se encontró el registro con el id = " + channel.getId());
+                    response.put("msg", "Record not found with id = " + channel.getId());
                 }
             } else {
-                response.put("msg", "Por favor ingrese un id de categoria existente");
+                response.put("msg", "Please enter an existing category id");
             }
         } catch (EntityNotFoundException e) {
             e.printStackTrace();
-            response.put("err", "Ha ocurrido una execpcion: "+e.getMessage());
+            response.put("err", "An exception has occurred: "+e.getMessage());
         }
         return response;
     }
@@ -173,20 +173,20 @@ public class TestChannelsServiceImpl implements ITestChannelsService {
 
                 TestChannels channel = optionalChannel.get();
                 testChannelsRepository.deleteById(id);
-                response.put("msg", "Se ha eliminado el registro con el id = " + id);
+                response.put("msg", "Record with id = " + id +" has been removed");
                 ChannelsModel model = new ChannelsModel(channel.getId(),channel.getTitle(),channel.getFkCategory().getId(),channel.getUrl(),channel.getBackupUrl(),channel.getThumbnail());
                 response.put("removed", model);
 
             } else {
-                response.put("msg", "No se encontró el registro con el id = " + id);
+                response.put("msg", "Record not found with id = " + id);
             }
 
         } catch (EntityNotFoundException e) {
             e.printStackTrace();
-            response.put("err", "Ha ocurrido una execpcion: "+e.getMessage());
+            response.put("err", "An exception has occurred: "+e.getMessage());
         } catch (Exception ex) {
             ex.printStackTrace();
-            response.put("err", "Ha ocurrido una execpcion: "+ex.getMessage());
+            response.put("err", "An exception has occurred: "+ex.getMessage());
         }
         return response;
     }

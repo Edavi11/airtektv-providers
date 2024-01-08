@@ -31,21 +31,21 @@ public class CategoriesServiceImpl implements ICategoriesService {
 
             if (!optionalCategories.isPresent()) {
                 Categories categoryDb = this.categoriesRepository.save(new Categories(category.getCategory_description()));
-                response.put("msg", "Recurso creado exitosamente");
+                response.put("msg", "Resource created successfully");
                 response.put("new_value", categoryDb);
             } else {
                 Categories categoriesDb = optionalCategories.get();
                 CategoriesModel model = new CategoriesModel(categoriesDb.getId(),categoriesDb.getCategory_description());
-                response.put("msg", "Registro ya existente");
+                response.put("msg", "Resource already exists");
                 response.put("value", model);
             }
 
         } catch (EntityNotFoundException e) {
             e.printStackTrace();
-            response.put("err", "Ha ocurrido una execpcion: "+e.getMessage());
+            response.put("err", "An exception has occurred: "+e.getMessage());
         } catch (Exception ex) {
             ex.printStackTrace();
-            response.put("err", "Ha ocurrido una execpcion: "+ex.getMessage());
+            response.put("err", "An exception has occurred: "+ex.getMessage());
         }
 
         return response;
@@ -67,12 +67,12 @@ public class CategoriesServiceImpl implements ICategoriesService {
                         .collect(Collectors.toList());
                 response.put("categories", models);
             } else {
-                response.put("msg", "No existen registros en la tabla");
+                response.put("msg", "There are no records in the table");
             }
 
         } catch (Exception e) {
             e.printStackTrace();
-            response.put("err", "Ha ocurrido una execpcion: "+e.getMessage());
+            response.put("err", "An exception has occurred: "+e.getMessage());
         }
         return response;
     }
@@ -89,15 +89,15 @@ public class CategoriesServiceImpl implements ICategoriesService {
                 CategoriesModel model = new CategoriesModel(category.getId(), category.getCategory_description());
                 response.put("category", model);
             } else {
-                response.put("msg", "No se encontró el registro con el id = " + id);
+                response.put("msg", "Record not found with id = " + id);
             }
 
         } catch (EntityNotFoundException e) {
             e.printStackTrace();
-            response.put("err", "Ha ocurrido una execpcion: "+ e.getMessage());
+            response.put("err", "An exception has occurred: "+ e.getMessage());
         } catch (Exception ex) {
             ex.printStackTrace();
-            response.put("err", "Ha ocurrido una execpcion: "+ ex.getMessage());
+            response.put("err", "An exception has occurred: "+ ex.getMessage());
         }
 
         return response;
@@ -122,18 +122,18 @@ public class CategoriesServiceImpl implements ICategoriesService {
                 CategoriesModel existingModel = new CategoriesModel(existingCategory.getId(),existingCategory.getCategory_description());
                 CategoriesModel previousModel = new CategoriesModel(previousCategory.getId(), previousCategory.getCategory_description());
 
-                response.put("msg", "Registro actualizado correctamente");
+                response.put("msg", "Resource updated correctly");
                 response.put("updated", existingModel);
                 response.put("previous", previousModel);
 
                 this.categoriesRepository.save(existingCategory);
 
             } else {
-                response.put("msg", "No se encontró el registro con el id = " + body.getId());
+                response.put("msg", "Record not found with id =  " + body.getId());
             }
         } catch (EntityNotFoundException e) {
             e.printStackTrace();
-            response.put("err", "Ha ocurrido una execpcion: "+e.getMessage());
+            response.put("err", "An exception has occurred: "+e.getMessage());
         }
 
         return response;
@@ -151,17 +151,17 @@ public class CategoriesServiceImpl implements ICategoriesService {
 
                 Categories category = optionalCategory.get();
                 categoriesRepository.deleteById(id);
-                response.put("msg", "Se ha eliminado el registro con el id = " + id);
+                response.put("msg", "Record with id = " + id +" has been removed");
                 CategoriesModel model = new CategoriesModel(category.getId(), category.getCategory_description());
                 response.put("removed", model);
 
             } else {
-                response.put("msg", "No se encontró el registro con el id = " + id);
+                response.put("msg", "Record not found with id =  " + id);
             }
 
         } catch (EntityNotFoundException e) {
             e.printStackTrace();
-            response.put("err", "Ha ocurrido una execpcion: "+e.getMessage());
+            response.put("err", "An exception has occurred: "+e.getMessage());
         }
         return response;
     }

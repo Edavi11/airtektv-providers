@@ -33,12 +33,12 @@ public class ProvidersServicesImpl implements IProvidersService {
 
             if (!optionalProviders.isPresent()) {
                 Providers providerDb = this.providerRepository.save(new Providers(provider.getProvider_description(),provider.getVersion(),provider.getNext_version(),provider.getDemo_version()));
-                response.put("msg", "Recurso creado exitosamente");
+                response.put("msg", "Resource created successfully");
                 response.put("new_value", providerDb);
             } else {
                 Providers providerDb = optionalProviders.get();
                 ProvidersModel model = new ProvidersModel(providerDb.getId(), providerDb.getProviderDescription(),providerDb.getVersion(), providerDb.getNext_version(), providerDb.getDemo_version(),providerDb.getIsActive());
-                response.put("msg", "Registro ya existente");
+                response.put("msg", "Resource already exists");
                 response.put("value", model);
             }
         } catch (EntityNotFoundException e) {
@@ -63,12 +63,12 @@ public class ProvidersServicesImpl implements IProvidersService {
                 models = providers.stream().map(provider -> new ProvidersModel(provider.getId(), provider.getProviderDescription(),provider.getVersion(), provider.getNext_version(), provider.getDemo_version(),provider.getIsActive())).collect(Collectors.toList());
                 response.put("providers", models);
             } else {
-                response.put("msg", "No existen registros en la tabla");
+                response.put("msg", "There are no records in the table");
             }
 
         } catch (Exception e) {
             e.printStackTrace();
-            response.put("err", "Ha ocurrido una execpcion: "+e.getMessage());
+            response.put("err", "An exception has occurred: "+e.getMessage());
         }
         return response;
     }
@@ -83,14 +83,14 @@ public class ProvidersServicesImpl implements IProvidersService {
                 ProvidersModel model = new ProvidersModel(provider.getId(), provider.getProviderDescription(),provider.getVersion(), provider.getNext_version(), provider.getDemo_version(),provider.getIsActive());
                 response.put("provider", model);
             } else {
-                response.put("msg", "No se encontró el registro con el id = " + id);
+                response.put("msg", "Record not found with id = " + id);
             }
         } catch (EntityNotFoundException e) {
             e.printStackTrace();
-            response.put("err", "Ha ocurrido una execpcion: "+e.getMessage());
+            response.put("err", "An exception has occurred: "+e.getMessage());
         } catch (Exception ex) {
             ex.printStackTrace();
-            response.put("err", "Ha ocurrido una execpcion: "+ex.getMessage());
+            response.put("err", "An exception has occurred: "+ex.getMessage());
         }
         return response;
     }
@@ -118,18 +118,18 @@ public class ProvidersServicesImpl implements IProvidersService {
                 ProvidersModel existingModel = new ProvidersModel(existingProvider.getId(),existingProvider.getProviderDescription(), existingProvider.getVersion(),existingProvider.getNext_version(), existingProvider.getDemo_version(),existingProvider.getIsActive());
                 ProvidersModel previousModel = new ProvidersModel(previousProvider.getId(),previousProvider.getProviderDescription(), previousProvider.getVersion(),previousProvider.getNext_version(), previousProvider.getDemo_version(),previousProvider.getIsActive());
 
-                response.put("msg", "Registro actualizado correctamente");
+                response.put("msg", "Resource updated correctly");
                 response.put("updated", existingModel);
                 response.put("previous", previousModel);
 
                 this.providerRepository.save(existingProvider);
 
             } else {
-                response.put("msg", "No se encontró el registro con el id = " + provider.getId());
+                response.put("msg", "Record not found with id =  " + provider.getId());
             }
         } catch (EntityNotFoundException e) {
             e.printStackTrace();
-            response.put("err", "Ha ocurrido una execpcion: "+e.getMessage());
+            response.put("err", "An exception has occurred: "+e.getMessage());
         }
         return response;
     }
@@ -146,16 +146,16 @@ public class ProvidersServicesImpl implements IProvidersService {
             if (optionalProvider.isPresent()) {
                 Providers provider = optionalProvider.get();
                 providerRepository.deleteById(id);
-                response.put("msg", "Se ha eliminado el registro con el id = " + id);
+                response.put("msg", "Record with id = " + id +" has been removed");
                 ProvidersModel model = new ProvidersModel(provider.getId(), provider.getProviderDescription(),provider.getVersion(), provider.getNext_version(), provider.getDemo_version(),provider.getIsActive());
                 response.put("removed", model);
             } else {
-                response.put("msg", "No se encontró el registro con el ID proporcionado");
+                response.put("msg", "Record not found with id = " + id);
             }
 
         } catch (EntityNotFoundException e) {
             e.printStackTrace();
-            response.put("err", "Ha ocurrido una execpcion: "+e.getMessage());
+            response.put("err", "An exception has occurred: "+e.getMessage());
         }
 
         return response;

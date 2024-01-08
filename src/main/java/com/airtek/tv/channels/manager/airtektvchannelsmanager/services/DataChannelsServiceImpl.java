@@ -73,7 +73,7 @@ public class DataChannelsServiceImpl {
 
                 response.put("data", channeList);
             } else {
-                response.put("msg", "No existen registros en la tabla");
+                response.put("msg", "There are no records in the table");
             }
         }
 
@@ -101,7 +101,7 @@ public class DataChannelsServiceImpl {
 
                 response.put("data", channeList);
             } else {
-                response.put("msg", "No existen registros en la tabla");
+                response.put("msg", "There are no records in the table");
             }
         }
 
@@ -129,12 +129,12 @@ public class DataChannelsServiceImpl {
 
                 response.put("data", channeList);
             } else {
-                response.put("msg", "No existen registros en la tabla");
+                response.put("msg", "There are no records in the table");
             }
         }
 
         if (optionalProvidersProd.isEmpty() && optionalProvidersTest.isEmpty() && optionalProvidersDemo.isEmpty()) {
-            response.put("msg", "No existen registros en la tabla");
+            response.put("msg", "There are no records in the table");
         }
 
         return response;
