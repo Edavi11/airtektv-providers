@@ -2,6 +2,8 @@ package com.airtek.tv.channels.manager.airtektvchannelsmanager.entities;
 
 import java.util.Date;
 
+import org.hibernate.annotations.ColumnDefault;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -30,7 +32,8 @@ public class Providers implements Cloneable {
     @Column(nullable = false)
     private String demo_version;
 
-    @Column(name = "is_active", nullable = false)
+    @Column(name = "is_active", nullable = false )
+    @ColumnDefault("true")
     private Boolean isActive;
 
     @Column(name = "created_at")
@@ -46,26 +49,29 @@ public class Providers implements Cloneable {
     protected void onCreate() {
         createdAt = new Date();
         updatedAt = new Date();
+        isActive = true;
     }
     
     public Providers() {
     }
 
-    public Providers(Integer id, String providerDescription, String version, String next_version, String demo_version,
-            Boolean isActive, Date createdAt, Date deletedAt, Date updatedAt) {
-        this.id = id;
+    public Providers(String providerDescription, String version, String next_version, String demo_version) {
+        this.providerDescription = providerDescription;
+        this.version = version;
+        this.next_version = next_version;
+        this.demo_version = demo_version;
+    }
+
+    public Providers(String providerDescription, String version, String next_version, String demo_version, Boolean isActive) {
         this.providerDescription = providerDescription;
         this.version = version;
         this.next_version = next_version;
         this.demo_version = demo_version;
         this.isActive = isActive;
-        this.createdAt = createdAt;
-        this.deletedAt = deletedAt;
-        this.updatedAt = updatedAt;
     }
 
-    public Providers(String providerDescription, String version, String next_version, String demo_version,
-            Boolean isActive) {
+    public Providers(Integer id, String providerDescription, String version, String next_version, String demo_version, Boolean isActive) {
+        this.id = id;
         this.providerDescription = providerDescription;
         this.version = version;
         this.next_version = next_version;

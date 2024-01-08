@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.airtek.tv.channels.manager.airtektvchannelsmanager.Implements.IProvidersService;
+import com.airtek.tv.channels.manager.airtektvchannelsmanager.Interfaces.IProvidersService;
 import com.airtek.tv.channels.manager.airtektvchannelsmanager.entities.Providers;
 import com.airtek.tv.channels.manager.airtektvchannelsmanager.models.ProvidersModel;
 import com.airtek.tv.channels.manager.airtektvchannelsmanager.repositories.ProviderRepository;
@@ -24,8 +24,30 @@ public class ProvidersServicesImpl implements IProvidersService {
     private ProviderRepository providerRepository;
 
     @Override
-    public Providers createProvider(Providers provider) {
-        return this.providerRepository.save(provider);
+    public Map<String, Object> createProvider(ProvidersModel provider) {
+
+        Map<String, Object> response = new HashMap<>();
+
+        try {
+            Optional<Providers> optionalProviders = providerRepository.findByProviderDescription(provider.getProvider_description());
+
+            if (!optionalProviders.isPresent()) {
+                Providers providerDb = this.providerRepository.save(new Providers(provider.getProvider_description(),provider.getVersion(),provider.getNext_version(),provider.getDemo_version()));
+                response.put("msg", "Recurso creado exitosamente");
+                response.put("new_value", providerDb);
+            } else {
+                Providers providerDb = optionalProviders.get();
+                ProvidersModel model = new ProvidersModel(providerDb.getId(), providerDb.getProviderDescription(),providerDb.getVersion(), providerDb.getNext_version(), providerDb.getDemo_version(),providerDb.getIsActive());
+                response.put("msg", "Registro ya existente");
+                response.put("value", model);
+            }
+        } catch (EntityNotFoundException e) {
+            e.printStackTrace();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+        return response;
     }
 
     @Override
@@ -46,6 +68,7 @@ public class ProvidersServicesImpl implements IProvidersService {
 
         } catch (Exception e) {
             e.printStackTrace();
+            response.put("err", "Ha ocurrido una execpcion: "+e.getMessage());
         }
         return response;
     }
@@ -57,41 +80,43 @@ public class ProvidersServicesImpl implements IProvidersService {
             Optional<Providers> optionalProvider = providerRepository.findById(id);
             if (optionalProvider.isPresent()) {
                 Providers provider = optionalProvider.get();
-                ProvidersModel model = new ProvidersModel(provider.getId(), provider.getProviderDescription(), provider.getVersion(), provider.getNext_version(), provider.getDemo_version(), provider.getIsActive());
+                ProvidersModel model = new ProvidersModel(provider.getId(), provider.getProviderDescription(),provider.getVersion(), provider.getNext_version(), provider.getDemo_version(),provider.getIsActive());
                 response.put("provider", model);
             } else {
                 response.put("msg", "No se encontró el registro con el id = " + id);
             }
         } catch (EntityNotFoundException e) {
             e.printStackTrace();
+            response.put("err", "Ha ocurrido una execpcion: "+e.getMessage());
         } catch (Exception ex) {
             ex.printStackTrace();
+            response.put("err", "Ha ocurrido una execpcion: "+ex.getMessage());
         }
         return response;
     }
 
     @Override
     @Transactional
-    public Map<String, Object> updateProvider(Integer id, String providerDescription, String version, String next_version, String demo_version, Boolean isActive) {
+    public Map<String, Object> updateProvider(ProvidersModel provider) {
 
         Map<String, Object> response = new HashMap<>();
 
         try {
-            Optional<Providers> optionalProvider = providerRepository.findById(id);
+            Optional<Providers> optionalProvider = providerRepository.findById(provider.getId());
 
             if (optionalProvider.isPresent()) {
 
                 Providers existingProvider = optionalProvider.get();
                 Providers previousProvider = existingProvider.clone();
 
-                existingProvider.setProviderDescription(providerDescription);
-                existingProvider.setVersion(version);
-                existingProvider.setNext_version(next_version);
-                existingProvider.setDemo_version(demo_version);
-                existingProvider.setIsActive(isActive);
+                existingProvider.setProviderDescription(provider.getProvider_description());
+                existingProvider.setVersion(provider.getVersion());
+                existingProvider.setNext_version(provider.getNext_version());
+                existingProvider.setDemo_version(provider.getDemo_version());
+                existingProvider.setIsActive(provider.getIs_active());
 
-                ProvidersModel existingModel = new ProvidersModel(existingProvider.getId(), existingProvider.getProviderDescription(),existingProvider.getVersion(), existingProvider.getNext_version(), existingProvider.getDemo_version(),existingProvider.getIsActive());
-                ProvidersModel previousModel = new ProvidersModel(previousProvider.getId(), previousProvider.getProviderDescription(),previousProvider.getVersion(), previousProvider.getNext_version(), previousProvider.getDemo_version(),previousProvider.getIsActive());
+                ProvidersModel existingModel = new ProvidersModel(existingProvider.getId(),existingProvider.getProviderDescription(), existingProvider.getVersion(),existingProvider.getNext_version(), existingProvider.getDemo_version(),existingProvider.getIsActive());
+                ProvidersModel previousModel = new ProvidersModel(previousProvider.getId(),previousProvider.getProviderDescription(), previousProvider.getVersion(),previousProvider.getNext_version(), previousProvider.getDemo_version(),previousProvider.getIsActive());
 
                 response.put("msg", "Registro actualizado correctamente");
                 response.put("updated", existingModel);
@@ -100,13 +125,12 @@ public class ProvidersServicesImpl implements IProvidersService {
                 this.providerRepository.save(existingProvider);
 
             } else {
-                response.put("msg", "No se encontró el registro con el id = " + id);
+                response.put("msg", "No se encontró el registro con el id = " + provider.getId());
             }
         } catch (EntityNotFoundException e) {
             e.printStackTrace();
-            response.put("msg", "No se encontró el registro con el id = " + id);
+            response.put("err", "Ha ocurrido una execpcion: "+e.getMessage());
         }
-
         return response;
     }
 
@@ -131,7 +155,7 @@ public class ProvidersServicesImpl implements IProvidersService {
 
         } catch (EntityNotFoundException e) {
             e.printStackTrace();
-            response.put("msg", "No se encontró el registro con el ID proporcionado");
+            response.put("err", "Ha ocurrido una execpcion: "+e.getMessage());
         }
 
         return response;

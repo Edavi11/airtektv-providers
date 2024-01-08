@@ -18,3 +18,41 @@ CREATE TABLE IF NOT EXISTS categories (
     deleted_at TIMESTAMP,
     CONSTRAINT unique_category_description UNIQUE (category_description)
 );
+
+CREATE TABLE IF NOT EXISTS channels (
+	id SERIAL PRIMARY KEY,
+	title VARCHAR(35) NOT NULL,
+	fk_category INTEGER NOT NULL REFERENCES categories(id) ON UPDATE CASCADE,
+	url VARCHAR(100) NOT NULL,
+	backup_url VARCHAR(100),
+	thumbnail VARCHAR(50) NOT NULL,
+	created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    deleted_at TIMESTAMP
+);
+
+
+CREATE TABLE IF NOT EXISTS test_channels (
+	id SERIAL PRIMARY KEY,
+	title VARCHAR(35) NOT NULL,
+	fk_category INTEGER NOT NULL REFERENCES categories(id) ON UPDATE CASCADE,
+	url VARCHAR(100) NOT NULL,
+	backup_url VARCHAR(100),
+	thumbnail VARCHAR(50) NOT NULL,
+	created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    deleted_at TIMESTAMP
+);
+
+
+CREATE TABLE IF NOT EXISTS demo_channels (
+	id SERIAL PRIMARY KEY,
+	title VARCHAR(35) NOT NULL,
+	fk_category INTEGER NOT NULL REFERENCES categories(id) ON UPDATE CASCADE,
+	url VARCHAR(100) NOT NULL,
+	backup_url VARCHAR(100),
+	thumbnail VARCHAR(50) NOT NULL,
+	created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    deleted_at TIMESTAMP
+);

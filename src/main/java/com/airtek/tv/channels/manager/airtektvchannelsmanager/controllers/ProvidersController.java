@@ -7,9 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.airtek.tv.channels.manager.airtektvchannelsmanager.entities.Providers;
+import com.airtek.tv.channels.manager.airtektvchannelsmanager.Interfaces.IProvidersService;
 import com.airtek.tv.channels.manager.airtektvchannelsmanager.models.ProvidersModel;
-import com.airtek.tv.channels.manager.airtektvchannelsmanager.Implements.IProvidersService;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -37,13 +36,13 @@ public class ProvidersController {
 
     @PostMapping("/create/provider")
     public ResponseEntity<?> createProvider(@RequestBody ProvidersModel body) {
-        Providers providerDb = new Providers(body.getProvider_description(), body.getVersion(),body.getNext_version(), body.getDemo_version(), body.getIs_active());
-        return new ResponseEntity<>(providersService.createProvider(providerDb), HttpStatus.CREATED);
+        Map<String,Object> response = providersService.createProvider(body);
+        return response.containsKey("new_value") ? new ResponseEntity<>(response, HttpStatus.CREATED) : new ResponseEntity<>(response, HttpStatus.ALREADY_REPORTED);
     }
 
     @PostMapping("/update/provider")
     public ResponseEntity<Map<String, Object>> updateProvider(@RequestBody ProvidersModel body) {
-        Map<String,Object> response = providersService.updateProvider(body.getId(), body.getProvider_description(), body.getVersion(), body.getNext_version(), body.getDemo_version(), body.getIs_active());
+        Map<String,Object> response = providersService.updateProvider(body);
         return response.containsKey("updated") ? new ResponseEntity<>(response, HttpStatus.OK) : new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
     }
 
@@ -52,4 +51,11 @@ public class ProvidersController {
         Map<String, Object> response = providersService.deleteProvider(body.getId());
         return response.containsKey("removed") ? new ResponseEntity<>(response, HttpStatus.OK) : new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
     }
+
+    // @PostMapping("path")
+    // public ResponseEntity<Map<String, Object>> postMethodName(@RequestBody ) {
+    //     Map<String, Object> response = null;
+    //     return null;
+    // }
+    
 }

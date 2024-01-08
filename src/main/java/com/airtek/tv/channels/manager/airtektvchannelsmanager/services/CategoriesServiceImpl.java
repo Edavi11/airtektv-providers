@@ -1,7 +1,7 @@
 package com.airtek.tv.channels.manager.airtektvchannelsmanager.services;
 
-import java.util.List;
 import java.util.Map;
+import java.util.List;
 import java.util.HashMap;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -9,9 +9,10 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import com.airtek.tv.channels.manager.airtektvchannelsmanager.entities.Categories;
 import com.airtek.tv.channels.manager.airtektvchannelsmanager.models.CategoriesModel;
-import com.airtek.tv.channels.manager.airtektvchannelsmanager.Implements.ICategoriesService;
+import com.airtek.tv.channels.manager.airtektvchannelsmanager.Interfaces.ICategoriesService;
 import com.airtek.tv.channels.manager.airtektvchannelsmanager.repositories.CategoriesRepository;
 
 @Service
@@ -21,7 +22,7 @@ public class CategoriesServiceImpl implements ICategoriesService {
     private CategoriesRepository categoriesRepository;
 
     @Override
-    public Map<String, Object> createCategory(Categories category) {
+    public Map<String, Object> createCategory(CategoriesModel category) {
 
         Map<String, Object> response = new HashMap<>();
 
@@ -29,7 +30,7 @@ public class CategoriesServiceImpl implements ICategoriesService {
             Optional<Categories> optionalCategories = categoriesRepository.findCategoriesByCategoryDescription(category.getCategory_description());
 
             if (!optionalCategories.isPresent()) {
-                Categories categoryDb = this.categoriesRepository.save(category);
+                Categories categoryDb = this.categoriesRepository.save(new Categories(category.getCategory_description()));
                 response.put("msg", "Recurso creado exitosamente");
                 response.put("new_value", categoryDb);
             } else {
@@ -41,8 +42,10 @@ public class CategoriesServiceImpl implements ICategoriesService {
 
         } catch (EntityNotFoundException e) {
             e.printStackTrace();
+            response.put("err", "Ha ocurrido una execpcion: "+e.getMessage());
         } catch (Exception ex) {
             ex.printStackTrace();
+            response.put("err", "Ha ocurrido una execpcion: "+ex.getMessage());
         }
 
         return response;
@@ -57,8 +60,6 @@ public class CategoriesServiceImpl implements ICategoriesService {
 
         try {
             List<Categories> categories = this.categoriesRepository.findAllCategories();
-
-            System.out.println(categories);
 
             if (!categories.isEmpty()) {
                 models = categories.stream()
@@ -103,20 +104,20 @@ public class CategoriesServiceImpl implements ICategoriesService {
     }
 
     @Override
-    public Map<String, Object> updateCategory(Integer id, String category_description) {
+    public Map<String, Object> updateCategory(CategoriesModel body) {
 
         Map<String, Object> response = new HashMap<>();
 
         try {
 
-            Optional<Categories> optionalCategory = categoriesRepository.findById(id);
+            Optional<Categories> optionalCategory = categoriesRepository.findById(body.getId());
 
             if (optionalCategory.isPresent()) {
 
                 Categories existingCategory = optionalCategory.get();
                 Categories previousCategory = existingCategory.clone();
 
-                existingCategory.setCategory_description(category_description);
+                existingCategory.setCategory_description(body.getCategory_description());
 
                 CategoriesModel existingModel = new CategoriesModel(existingCategory.getId(),existingCategory.getCategory_description());
                 CategoriesModel previousModel = new CategoriesModel(previousCategory.getId(), previousCategory.getCategory_description());
@@ -128,7 +129,7 @@ public class CategoriesServiceImpl implements ICategoriesService {
                 this.categoriesRepository.save(existingCategory);
 
             } else {
-                response.put("msg", "No se encontró el registro con el id = " + id);
+                response.put("msg", "No se encontró el registro con el id = " + body.getId());
             }
         } catch (EntityNotFoundException e) {
             e.printStackTrace();
